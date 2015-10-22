@@ -11,19 +11,7 @@ __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
-def user_input():
-    """
-    This function checks to make sure user input is legal
-    and returns legal user input to the pig latin function
-    """
-    word = raw_input("Enter your word!")
-    while word.isalpha() == False:
-        print "Please enter a single word"
-        word = raw_input("Enter your word!")
-    else:
-        return word.lower()
-
-def pig_latinify():
+def pig_latinify(word):
     """
     Describe your function
 
@@ -33,7 +21,7 @@ def pig_latinify():
 
     """
     vowels = ["a","e","i","o","u","y"]
-    word = user_input()
+    word = word.lower()
 
     while True:
         for letter in vowels:
@@ -48,5 +36,5 @@ def pig_latinify():
                         print word[i:]+word[:i]+"ay"
                         return False
 
-pig_latinify()
+pig_latinify("Cat")
 
