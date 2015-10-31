@@ -45,9 +45,6 @@ def find(input_string, substring, start, end):
     return -1
 
 
-find("This is an ex-parrot", "parrot", 0, 20)
-
-
 
 
 def multi_find(input_string, substring, start, end):
