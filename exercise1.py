@@ -33,4 +33,3 @@ def pig_latinify(word):
                     i = word.index(let)
                     return word[i:]+word[:i]+"ay"
 
-pig_latinify("apple")
