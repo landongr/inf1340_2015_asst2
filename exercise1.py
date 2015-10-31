@@ -23,18 +23,14 @@ def pig_latinify(word):
     """
     vowels = ["a","e","i","o","u","y"]
     word = word.lower()
-
-    while True:
+    for letter in vowels:
+        if word[0] == letter:
+            return word + "yay"
+    else:
         for letter in vowels:
-            if word[0] == letter:
-                return str(word + "yay")
-                return False
-        else:
-            for letter in vowels:
-                for let in word:
-                    if letter == let:
-                        i = word.index(let)
-                        return str(word[i:]+word[:i]+"ay")
-                        return False
+            for let in word:
+                if letter == let:
+                    i = word.index(let)
+                    return word[i:]+word[:i]+"ay"
 
-#pig_latinify("dog")
+pig_latinify("apple")
