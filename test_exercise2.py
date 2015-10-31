@@ -20,9 +20,37 @@ def test_find_basic():
     """
     assert find("This is an ex-parrot", "parrot", 0, 20) == 14
 
+def test_find_basic_2():
+    """
+    Test find function.
+    """
+    assert find("This is an ex-parrot", "parrt", 0, 20) == -1
 
 def test_multi_find_basic():
     """
     Test multi_find function.
     """
     assert multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 20) == "0,4,8,12"
+
+def test_multi_find_basic_2():
+    """
+    Test multi_find function.
+    """
+    assert multi_find("Ni! Ni! Ni! Ni!", "ii", 0, 20) == "0"
+
+try:
+   find("This is an ex-parrot", parrot, 0, 20)
+except NameError:
+   assert True
+
+try:
+   find("This is an ex-parrot", "parrot")
+except TypeError:
+   assert True
+
+try:
+   multi_find("Ni! Ni! Ni! Ni!", "Ni", 3.3, 20)
+except TypeError:
+   assert True
+
+
