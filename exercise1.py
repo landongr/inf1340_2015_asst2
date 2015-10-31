@@ -27,15 +27,14 @@ def pig_latinify(word):
     while True:
         for letter in vowels:
             if word[0] == letter:
-                print word + "yay"
+                return str(word + "yay")
                 return False
         else:
             for letter in vowels:
                 for let in word:
                     if letter == let:
                         i = word.index(let)
-                        print word[i:]+word[:i]+"ay"
+                        return str(word[i:]+word[:i]+"ay")
                         return False
 
-pig_latinify("Cat")
-
+#pig_latinify("dog")
