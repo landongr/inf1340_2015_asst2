@@ -54,10 +54,16 @@ def find(input_string, substring, start, end):
 
 def multi_find(input_string, substring, start, end):
     """
+    This function finds a sub-string within a longer string, both are put in as
+    arguments within the function. The search can be initiated within a slice of
+    the long string by providing start and end as the third and forth arguments
+    in the function
 
-
-    :param :
-    :return:
+    :param :the long string to be searched is the first argument, the substring to be
+    found is the second argument and the third and forth arguments are the start and end
+    of a slice of the long string to be searched.
+    :return:a string that lists all indices of all locations where the substring if found, or a 0 if the substring
+    is not present
     :raises:
 
     """
