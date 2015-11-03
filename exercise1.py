@@ -28,21 +28,19 @@ def pig_latinify(word):
 
     # list of vowels used to compare to the letters input
     vowels = ["a","e","i","o","u","y"]
-    # index counter used to iterate though the letter input
     index = 0
     # these variable assignments ensure proper input and error checks
     word = str(word)
     word = word.lower()
-    # check for proper input
+
     if word.isalpha() and len(word) > 0:
         # iterate through word and check if first letter is vowel
         for letter in word:
             if word[0] in vowels:
                 return word + "yay"
             else:
-                # iterates though word with an index counter
+                # iterates through word with an index counter
                 index += + 1
-                # checks for vowels inside the word
                 if word[index] in vowels:
                     return word[index:] + word[:index] + "ay"
     else:
