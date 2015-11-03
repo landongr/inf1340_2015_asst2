@@ -38,6 +38,10 @@ def test_multi_find_basic_2():
     """
     assert multi_find("Ni! Ni! Ni! Ni!", "ii", 0, 20) == "0"
 
+def test_outside_substring():
+    #
+    assert find("atcgcgcatagcgtagactagcgtactgactgactgactgac","cata", 16 , 20) == -1
+
 try:
    find("This is an ex-parrot", parrot, 0, 20)
 except NameError:
