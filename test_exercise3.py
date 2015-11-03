@@ -93,3 +93,9 @@ def test_schema_check():
     assert schema_check(GRADUATES_WRONG, MANAGERS) == MismatchedAttributesException
     # Chckes to ensure an error is throw if the amount of columns of the table do not match
     assert schema_check(GRADUATES, MANAGERS_WRONG) == MismatchedAttributesException
+
+
+#try:
+#   schema_check(GRADUATES, MANAGERS_WRONG)
+#except TypeError:
+#   assert True
