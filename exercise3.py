@@ -12,7 +12,7 @@ __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
-table_1 = [["Number", "Surname", "Age"],
+table_1 = [["Number", "Surname", "Ages"],
              [7274, "Robinson", 37],
              [7432, "O'Malley", 39],
              [9824, "Darkes", 38]]
@@ -36,7 +36,7 @@ def schema_check(table1, table2):
 
     # compares the first row of each table to ensure the titles of each column match
     if table1[0] != table2[0]:
-        return MismatchedAttributesException
+        raise MismatchedAttributesException
     # counters used to iterate though each row in their respective tables
     count1 = 0
     count2 = 0
@@ -47,14 +47,14 @@ def schema_check(table1, table2):
             continue
         # if the number of columns does not match then an error is thrown
         else:
-            return MismatchedAttributesException
+            raise MismatchedAttributesException
     # repeats the column check for table two
     while count2 < len(table2):
         if len(table2[count2]) == len(table2[0]):
             count2 += + 1
             continue
         else:
-            return MismatchedAttributesException
+            raise MismatchedAttributesException
 
 
 def union(table1, table2):
@@ -165,9 +165,17 @@ class MismatchedAttributesException(Exception):
 
     pass
 
+GRADUATES = [["Number", "Surname", "Age"],
+             [7274, "Robinson", 37],
+             [7432, "O'Malley", 39],
+             [9824, "Darkes", 38]]
 
+MANAGERS = [["Number", "Surname", "Age"],
+            [9297, "O'Malley", 56],
+            [7432, "O'Malley", 39],
+            [9824, "Darkes", 38]]
 
-#schema_check(table_1, table_2)
+#schema_check(GRADUATES, MANAGERS)
 #union(table_1, table_2)
 #intersection(table_1, table_2)
 #difference(table_1, table_2)

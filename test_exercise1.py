@@ -33,15 +33,4 @@ def test_basic():
     # Test one letter string
     assert pig_latinify("a") == "ayay"
 
-    # Test empty string
-    assert pig_latinify("") == "Error please use a valid word"
-
-    # Test string with non-letters
-    assert pig_latinify("dollar$") == "Error please use a valid word"
-
-    # Test with integer input
-    assert pig_latinify(3) == "Error please use a valid word"
-
-    # Test for whitespace in sting
-    assert pig_latinify("white space") == "Error please use a valid word"
 

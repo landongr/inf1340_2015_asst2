@@ -27,11 +27,13 @@ MANAGERS = [["Number", "Surname", "Age"],
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
 
+# This table has a mismatched heading
 GRADUATES_WRONG = [["Number", "Surname", "DOB"],
              [7274, "Robinson", "01/03/93"],
              [7432, "O'Malley", "10/10/01"],
              [9824, "Darkes", "09/08/76"]]
 
+# This table has an extra column
 MANAGERS_WRONG = [["Number", "Surname", "Age", "Sex"],
             [9297, "O'Malley", 56, "F"],
             [7432, "O'Malley", 39, "M"],
@@ -83,13 +85,40 @@ def test_difference():
 
     assert is_equal(result, difference(GRADUATES, MANAGERS))
 
+# Added student test begin here
+
 def test_schema_check():
     """
-    Test to make sure the schema check does or does not throw errors when appropriate
+    Tests to make sure an error is thrown if the schema titles to not match
     """
-    # Checks to ensure no error is thrown when schemas match
-    assert schema_check(GRADUATES, MANAGERS) == None
-    # Checks to ensure an error is thrown if the schema titles to not match
-    assert schema_check(GRADUATES_WRONG, MANAGERS) == MismatchedAttributesException
-    # Chckes to ensure an error is throw if the amount of columns of the table do not match
-    assert schema_check(GRADUATES, MANAGERS_WRONG) == MismatchedAttributesException
+    try:
+        schema_check(GRADUATES_WRONG, MANAGERS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+def test_schema_check_2():
+    """
+    Test to make sure an error is throw if the amount of columns of the table do not match
+    """
+    try:
+        schema_check(GRADUATES, MANAGERS_WRONG)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+def test_schema_check_3():
+    """
+    Tests that an error will not be thrown when schemas are matching
+    """
+    try:
+        schema_check(GRADUATES, MANAGERS)
+    except MismatchedAttributesException:
+        assert False
+    else:
+        assert True
+
+
+
