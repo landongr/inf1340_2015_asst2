@@ -36,10 +36,15 @@ def test_capital_letters():
     """
     assert pig_latinify("CaPiTaL") == "apitalcay"
 
-def test_one_letter():
+def test_one_letter_vowel():
     """
-    Test one letter string
+    Test one letter vowel string
     """
     assert pig_latinify("a") == "ayay"
 
+def test_one_letter_consonant():
+    """
+    Test one letter consonant string
+    """
+    assert pig_latinify("h") == "hay"
 
