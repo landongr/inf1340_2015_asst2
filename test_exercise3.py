@@ -121,7 +121,7 @@ def test_schema_titles():
 
 def test_schema_columns():
     """
-    Test to make sure an error is throw if the amount of columns of the table do not match
+    Test to make sure an error is thrown if the amount of columns of the table do not match
     """
     try:
         schema_check(GRADUATES, MANAGERS_WRONG)
