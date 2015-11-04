@@ -34,27 +34,9 @@ def schema_check(table1, table2):
 
     """
 
-    # compares the first row of each table to ensure the titles of each column match
+    # compares the first row of each table to ensure the titles and number of columns match
     if table1[0] != table2[0]:
         raise MismatchedAttributesException
-    # counters used to iterate though each row in their respective tables
-    count1 = 0
-    count2 = 0
-    # compares the number of columns in each row of table one to the number of columns in the title row
-    while count1 < len(table1):
-        if len(table1[count1]) == len(table1[0]):
-            count1 += + 1
-            continue
-        # if the number of columns does not match then an error is thrown
-        else:
-            raise MismatchedAttributesException
-    # repeats the column check for table two
-    while count2 < len(table2):
-        if len(table2[count2]) == len(table2[0]):
-            count2 += + 1
-            continue
-        else:
-            raise MismatchedAttributesException
 
 
 def union(table1, table2):
