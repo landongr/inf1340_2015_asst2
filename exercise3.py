@@ -27,10 +27,11 @@ def schema_check(table1, table2):
     """
     This function takes two tables as input and ensures that they have the same schema, which in this
     case means that the title of each column is exactly the same and each table has the same number of columns
-    :param table1:
-    :param table2:
-    :return: returns None if schemas are the same, or will return a MismatchedAttributesException error if the
-    two tables do not share the same schema.
+    :param table1: a table (a List of Lists)
+    :param table2: a table (a List of Lists)
+    :return: None
+    :raises: MismatchedAttributesException:
+        if tables t1 and t2 don't have the same schema
 
     """
 
@@ -51,11 +52,9 @@ def union(table1, table2):
         if tables t1 and t2 don't have the same schema
     """
 
-    # ensures the input tables have matching schemas
     schema_check(table1, table2)
-    # combines the two input tables
+    # combines the two input tables, then removes the duplicates from the combined table
     union_table = table1 + table2
-    # removes the duplicates from the combined table to return all unique rows
     return remove_duplicates(union_table)
 
 
@@ -73,13 +72,10 @@ def intersection(table1, table2):
 
     """
 
-    # ensures the input tables have matching schemas
     schema_check(table1, table2)
-    # empty list that will be appended to contain the output
     intersection_list = []
-    # iterates through rows in table one
+    # iterates through rows in table one and table two
     for lists1 in table1:
-        # iterates through rows in table two
         for lists2 in table2:
             # compares rows between the two tables and appends matching rows to the empty list
             if lists1 == lists2:
@@ -101,11 +97,10 @@ def difference(table1, table2):
         if tables t1 and t2 don't have the same schema
 
     """
-    # ensures the input tables have matching schemas
+
     schema_check(table1, table2)
     # pulls column titles from table one for input in the final table
     column_titles = table1[0]
-    # counter used to control loop
     count = 0
     while count < len(table1):
         # iterates though rows in each table
