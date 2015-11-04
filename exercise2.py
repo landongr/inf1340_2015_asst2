@@ -44,7 +44,7 @@ def find(input_string, substring, start, end):
             # returns index of the first character of substring
             return cnt2
         # shifts the sliced string 1 character to the right
-        cnt2 = cnt2 + 1
+        cnt2 += 1
         cnt3 = cnt2 + substring_len
     # if no matches are found, returns -1
     return -1
@@ -86,7 +86,7 @@ def multi_find(input_string, substring, start, end):
             else:
                 result = result + "," + str(cnt2)
         # shifts the sliced string 1 character to the right
-        cnt2 = cnt2 + 1
+        cnt2 += 1
         cnt3 = cnt2 + substring_len
     # if result still equals to "", substring is not found and should return "0"
     if result == "":
@@ -94,6 +94,5 @@ def multi_find(input_string, substring, start, end):
     # otherwise, it will list all indices found
     else:
         return result
-
 
 
