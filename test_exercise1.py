@@ -24,24 +24,22 @@ def test_basic():
     assert pig_latinify("is") == "isyay"
     assert pig_latinify("apple") == "appleyay"
 
-    # Test string with more than one vowel in string
+def test_multiple_vowels():
+    """
+    Test string with more than one vowel in
+    """
     assert pig_latinify("constantinople") == "onstantinoplecay"
 
-    # Test string with capital letters
+def test_capital_letters():
+    """
+    Test string with capital letters
+    """
     assert pig_latinify("CaPiTaL") == "apitalcay"
 
-    # Test one letter string
+def test_one_letter():
+    """
+    Test one letter string
+    """
     assert pig_latinify("a") == "ayay"
 
-    # Test empty string
-    assert pig_latinify("") == "Error please use a valid word"
-
-    # Test string with non-letters
-    assert pig_latinify("dollar$") == "Error please use a valid word"
-
-    # Test with integer input
-    assert pig_latinify(3) == "Error please use a valid word"
-
-    # Test for whitespace in sting
-    assert pig_latinify("white space") == "Error please use a valid word"
 

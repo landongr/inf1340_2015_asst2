@@ -13,16 +13,13 @@ __license__ = "MIT License"
 
 def pig_latinify(word):
     """
-    This function will take a word as an argument and return it as the Pig Latin
-    version of that word.
+    This function will take a word as an argument and return it as the Pig Latin version of that word. If the first
+    letter is a vowel the word will be returned with "yay" on the end of the word. If the first word is not a vowel
+    then the letters of the word will be returned with the letters up to the first vowel in the word on the end
+    followed by "ay"
 
-    :param : Will take a  word as input
-    :return: Will output word as a string in its Pig Lain form. If the first
-    letter is a vowel the word will be returned with "yay" on the end of the word.
-    If the first word is not a vowel then the letters of the word will be returned
-    with the letters up to the first vowel in the word on the end followed by "ay"
-    :raises: "Please use a valid word" raised if input is not alphabetic characters
-    or input is an empty string.
+    :param : Takes a string as input
+    :return: A string in pig latin form
 
     """
 
@@ -33,18 +30,13 @@ def pig_latinify(word):
     word = str(word)
     word = word.lower()
 
-    if word.isalpha() and len(word) > 0:
-        # iterate through word and check if first letter is vowel
-        for letter in word:
-            if word[0] in vowels:
-                return word + "yay"
-            else:
-                # iterates through word with an index counter
-                index += + 1
-                if word[index] in vowels:
-                    return word[index:] + word[:index] + "ay"
-    else:
-        # error message returned if input is not valid
-        return "Error please use a valid word"
+    for letter in word:
+        if word[0] in vowels:
+            return word + "yay"
+        else:
+            # iterates through word with an index counter
+            index += + 1
+            if word[index] in vowels:
+                return word[index:] + word[:index] + "ay"
 
 
