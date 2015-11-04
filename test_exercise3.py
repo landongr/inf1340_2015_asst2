@@ -87,7 +87,7 @@ def test_difference():
 
 # Added student test begin here
 
-def test_schema_check():
+def test_schema_titles():
     """
     Tests to make sure an error is thrown if the schema titles to not match
     """
@@ -98,7 +98,28 @@ def test_schema_check():
     else:
         assert False
 
-def test_schema_check_2():
+    try:
+        union(GRADUATES_WRONG, MANAGERS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    try:
+        intersection(GRADUATES_WRONG, MANAGERS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    try:
+        difference(GRADUATES_WRONG, MANAGERS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+def test_schema_columns():
     """
     Test to make sure an error is throw if the amount of columns of the table do not match
     """
@@ -109,7 +130,28 @@ def test_schema_check_2():
     else:
         assert False
 
-def test_schema_check_3():
+    try:
+        union(GRADUATES_WRONG, MANAGERS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    try:
+        intersection(GRADUATES_WRONG, MANAGERS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    try:
+        difference(GRADUATES_WRONG, MANAGERS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+def test_schema_error():
     """
     Tests that an error will not be thrown when schemas are matching
     """
