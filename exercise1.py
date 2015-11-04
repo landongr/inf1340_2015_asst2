@@ -38,8 +38,8 @@ def pig_latinify(word):
             try:
                 index += + 1
                 if word[index] in vowels:
-                    print word[index:] + word[:index] + "ay"
+                    return word[index:] + word[:index] + "ay"
             # will ensure proper output if input is single consonant
             except IndexError:
                 index -= 1
-                print word + "ay"
+                return word + "ay"
