@@ -25,7 +25,7 @@ table_2 = [["Number", "Surname", "Age"],
 
 def schema_check(table1, table2):
     """
-    This function ensures takes two tables as input and ensures that they have the same schema, which in this
+    This function takes two tables as input and ensures that they have the same schema, which in this
     case means that the title of each column is exactly the same and each table has the same number of columns
     :param table1:
     :param table2:
@@ -93,11 +93,11 @@ def intersection(table1, table2):
 
     # ensures the input tables have matching schemas
     schema_check(table1, table2)
-    # empty list what will be appended to contain the output
+    # empty list that will be appended to contain the output
     intersection_list = []
-    # iterates though rows in table one
+    # iterates through rows in table one
     for lists1 in table1:
-        # iterates though rows in table two
+        # iterates through rows in table two
         for lists2 in table2:
             # compares rows between the two tables and appends matching rows to the empty list
             if lists1 == lists2:
@@ -133,7 +133,7 @@ def difference(table1, table2):
                 if lists1 == lists2:
                     table1.remove(lists1)
         count += + 1
-    # inerts column titles as top row and returns the final table
+    # inserts column titles as top row and returns the final table
     table1.insert(0,column_titles)
     return table1
 
