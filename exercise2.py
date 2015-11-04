@@ -32,16 +32,12 @@ def find(input_string, substring, start, end):
 
     """
     substring_len = len(substring)
-    # start index for sliced comparison string
     cnt2 = 0
-    # end index for sliced comparison string
     cnt3 = substring_len
+    # checks for substring in input string
     for cnt1 in input_string[start:end]:
-        # defining the sliced string for comparison
         slice_str = input_string[cnt2:cnt3]
-        # compare substring with sliced string from input string
         if substring == slice_str:
-            # returns index of the first character of substring
             return cnt2
         # shifts the sliced string 1 character to the right
         cnt2 += 1
@@ -67,19 +63,15 @@ def multi_find(input_string, substring, start, end):
     :raises:
 
     """
+
     substring_len = len(substring)
-    # start index for sliced comparison string
     cnt2 = 0
-    # end index for sliced comparison string
     cnt3 = substring_len
-    # placeholder for substrings that were found
     result = ""
-    for cnt1 in input_string[start:end]:
-        # defining the sliced string for comparison
+    # checks if substring is in input string
+    for letters in input_string[start:end]:
         slice_str = input_string[cnt2:cnt3]
-        # compare substring with sliced string from input string
         if substring == slice_str:
-            # placeholder for the first index found
             if result == "":
                 result = str(cnt2)
             # placeholder for subsequent indices found
