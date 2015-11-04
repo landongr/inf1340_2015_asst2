@@ -42,7 +42,6 @@ def schema_check(table1, table2):
 
 def union(table1, table2):
     """
-
     Combines input tables and returns a table that contains all unique rows that appear in either input tables
 
     :param table1: a table (a List of Lists)
@@ -141,18 +140,3 @@ class MismatchedAttributesException(Exception):
     """
 
     pass
-
-GRADUATES = [["Number", "Surname", "Age"],
-             [7274, "Robinson", 37],
-             [7432, "O'Malley", 39],
-             [9824, "Darkes", 38]]
-
-MANAGERS = [["Number", "Surname", "Age"],
-            [9297, "O'Malley", 56],
-            [7432, "O'Malley", 39],
-            [9824, "Darkes", 38]]
-
-#schema_check(GRADUATES, MANAGERS)
-#union(table_1, table_2)
-#intersection(table_1, table_2)
-#difference(table_1, table_2)
