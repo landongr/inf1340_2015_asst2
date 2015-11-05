@@ -98,19 +98,14 @@ def difference(table1, table2):
     """
 
     schema_check(table1, table2)
-    # pulls column titles from table one for input in the final table
-    column_titles = table1[0]
-    count = 0
+    count = 1
+    # Compares indices in table1 to the rows in table2
     while count < len(table1):
-        # iterates though rows in each table
-        for lists1 in table1:
             for lists2 in table2:
-                # compares rows and removes matching rows from table one
-                if lists1 == lists2:
-                    table1.remove(lists1)
-        count += + 1
-    # inserts column titles as top row and returns the final table
-    table1.insert(0,column_titles)
+                if table1[count] == lists2:
+                    # Removes matches from table1
+                    table1.remove(table1[count])
+            count += 1
     return table1
 
 
@@ -140,3 +135,16 @@ class MismatchedAttributesException(Exception):
     """
 
     pass
+
+
+CARS = [["Make", "Color", "Year", "Works(y/n)"],
+        ["Toyota","Yellow", 1989, "y"],
+        ["Honda", "Orange", 2011, "n"],
+        ["Dodge", "Purple", 2000, "y"],
+        ["Fiat", "Polka dot", 1999, "y"]]
+
+TRUCKS = [["Make", "Color", "Year", "Works(y/n)"],
+          ["Toyota","Yellow", 1989, "y"],
+          ["Honda", "Red", 1998, "n"],
+          ["Dodge", "Purple", 2000, "y"],
+          ["GMC", "White", 1984, "n"]]

@@ -27,17 +27,29 @@ MANAGERS = [["Number", "Surname", "Age"],
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
 
+CARS = [["Make", "Color", "Year", "Works(y/n)"],
+        ["Toyota","Yellow", 1989, "y"],
+        ["Honda", "Orange", 2011, "n"],
+        ["Dodge", "Purple", 2000, "y"],
+        ["Fiat", "Polka dot", 1999, "y"]]
+
+TRUCKS = [["Make", "Color", "Year", "Works(y/n)"],
+          ["Toyota","Yellow", 1989, "y"],
+          ["Honda", "Red", 1998, "n"],
+          ["Dodge", "Purple", 2000, "y"],
+          ["GMC", "White", 1984, "n"]]
+
 # This table has a mismatched heading
 GRADUATES_WRONG = [["Number", "Surname", "DOB"],
-             [7274, "Robinson", "01/03/93"],
-             [7432, "O'Malley", "10/10/01"],
-             [9824, "Darkes", "09/08/76"]]
+                   [7274, "Robinson", "01/03/93"],
+                   [7432, "O'Malley", "10/10/01"],
+                   [9824, "Darkes", "09/08/76"]]
 
 # This table has an extra column
 MANAGERS_WRONG = [["Number", "Surname", "Age", "Sex"],
-            [9297, "O'Malley", 56, "F"],
-            [7432, "O'Malley", 39, "M"],
-            [9824, "Darkes", 38, "M"]]
+                  [9297, "O'Malley", 56, "F"],
+                  [7432, "O'Malley", 39, "M"],
+                  [9824, "Darkes", 38, "M"]]
 
 
 #####################
@@ -87,6 +99,7 @@ def test_difference():
 
 # Added student test begin here
 
+
 def test_schema_titles():
     """
     Tests to make sure an error is thrown if the schema titles to not match
@@ -118,6 +131,7 @@ def test_schema_titles():
         assert True
     else:
         assert False
+
 
 def test_schema_columns():
     """
@@ -151,6 +165,7 @@ def test_schema_columns():
     else:
         assert False
 
+
 def test_schema_error():
     """
     Tests that an error will not be thrown when schemas are matching
@@ -163,4 +178,39 @@ def test_schema_error():
         assert True
 
 
+def test_my_union_test():
+    """
+    Test union operation.
+    """
+    result = [['Make', 'Color', 'Year', 'Works(y/n)'],
+              ['Toyota', 'Yellow', 1989, 'y'],
+              ['Honda', 'Orange', 2011, 'n'],
+              ['Dodge', 'Purple', 2000, 'y'],
+              ['Fiat', 'Polka dot', 1999, 'y'],
+              ['Honda', 'Red', 1998, 'n'],
+              ['GMC', 'White', 1984, 'n']]
 
+
+    assert result == union(CARS, TRUCKS)
+
+
+def test_my_intersection_test():
+    """
+    Test intersection operation.
+    """
+    result = [['Make', 'Color', 'Year', 'Works(y/n)'],
+              ['Toyota', 'Yellow', 1989, 'y'],
+              ['Dodge', 'Purple', 2000, 'y']]
+
+    assert is_equal(result, intersection(CARS, TRUCKS))
+
+
+def test_my_difference_test():
+    """
+    Test difference operation.
+    """
+    result = [['Make', 'Color', 'Year', 'Works(y/n)'],
+              ['Honda', 'Orange', 2011, 'n'],
+              ['Fiat', 'Polka dot', 1999, 'y']]
+
+    assert is_equal(result, difference(CARS, TRUCKS))
