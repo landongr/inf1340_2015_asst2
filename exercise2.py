@@ -32,16 +32,16 @@ def find(input_string, substring, start, end):
 
     """
     substring_len = len(substring)
-    cnt2 = 0
-    cnt3 = substring_len
+    cnt1 = 0
+    cnt2 = substring_len
     # checks for substring in input string
-    for cnt1 in input_string[start:end]:
-        slice_str = input_string[cnt2:cnt3]
+    for letter in input_string[start:end]:
+        slice_str = input_string[cnt1:cnt2]
         if substring == slice_str:
-            return cnt2
+            return cnt1
         # shifts the sliced string 1 character to the right
-        cnt2 += 1
-        cnt3 = cnt2 + substring_len
+        cnt1 += 1
+        cnt2 = cnt1 + substring_len
     # if no matches are found, returns -1
     return -1
 
@@ -65,21 +65,21 @@ def multi_find(input_string, substring, start, end):
     """
 
     substring_len = len(substring)
-    cnt2 = 0
-    cnt3 = substring_len
+    cnt1 = 0
+    cnt2 = substring_len
     result = ""
     # checks if substring is in input string
     for letters in input_string[start:end]:
-        slice_str = input_string[cnt2:cnt3]
+        slice_str = input_string[cnt1:cnt2]
         if substring == slice_str:
             if result == "":
-                result = str(cnt2)
+                result = str(cnt1)
             # placeholder for subsequent indices found
             else:
-                result = result + "," + str(cnt2)
+                result = result + "," + str(cnt1)
         # shifts the sliced string 1 character to the right
-        cnt2 += 1
-        cnt3 = cnt2 + substring_len
+        cnt1 += 1
+        cnt2 = cnt1 + substring_len
     # if result still equals to "", substring is not found and should return "0"
     if result == "":
         return "0"
