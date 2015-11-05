@@ -41,5 +41,4 @@ def pig_latinify(word):
                     return word[index:] + word[:index] + "ay"
             # will ensure proper output if input is single consonant
             except IndexError:
-                index -= 1
                 return word + "ay"
