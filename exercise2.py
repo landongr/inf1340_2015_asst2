@@ -35,7 +35,7 @@ def find(input_string, substring, start, end):
     cnt2 = 0
     cnt3 = substring_len
     # checks for substring in input string
-    for cnt1 in input_string[start:end]:
+    for letter in input_string[start:end]:
         slice_str = input_string[cnt2:cnt3]
         if substring == slice_str:
             return cnt2
