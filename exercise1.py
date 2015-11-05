@@ -24,7 +24,7 @@ def pig_latinify(word):
     """
 
     # list of vowels used to compare to the letters input
-    vowels = ["a","e","i","o","u","y"]
+    vowels = ["a","e","i","o","u"]
     index = 0
     # these variable assignments ensure proper input and error checks
     word = str(word)
